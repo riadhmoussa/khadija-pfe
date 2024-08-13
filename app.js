@@ -33,6 +33,19 @@ const tips = [
   },
 ];
 
+const trafficCenters = [
+  { name: 'مركز 1', lat: 35.8256, lng: 10.6344 },
+  { name: 'مركز 2', lat: 35.8300, lng: 10.6350 },
+  { name: 'مركز 3', lat: 35.8320, lng: 10.6330 },
+  { name: 'مركز 4', lat: 35.8315, lng: 10.6360 },
+  { name: 'مركز 5', lat: 35.8270, lng: 10.6320 },
+  { name: 'مركز 6', lat: 35.8265, lng: 10.6315 },
+  { name: 'مركز 7', lat: 35.8295, lng: 10.6340 },
+  { name: 'مركز 8', lat: 35.8250, lng: 10.6370 },
+  { name: 'مركز 9', lat: 35.8280, lng: 10.6355 },
+  { name: 'مركز 10', lat: 35.8325, lng: 10.6345 },
+];
+
 const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
@@ -65,4 +78,8 @@ cron.schedule('* * * * *', () => {
     .catch((error) => {
       console.error('Error sending notification:', error);
     });
+});
+
+app.get('/api/traffic-centers', (req, res) => {
+  res.json(trafficCenters);
 });
